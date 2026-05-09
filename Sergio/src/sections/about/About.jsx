@@ -6,7 +6,7 @@ const pillars = [
   {
     icon: FiServer,
     title: "Backend en producción",
-    body: "Más de 4 años trabajando con sistemas reales: APIs REST, lógica de negocio y bases de datos. He pasado por administración de infraestructura, software a medida y backend empresarial con Laravel y NestJS.",
+    body: "Más de 3 años y medio trabajando con sistemas reales: APIs REST, lógica de negocio y bases de datos. He pasado por administración de infraestructura, software a medida y backend empresarial con Laravel y NestJS.",
   },
   {
     icon: FiCode,
@@ -16,7 +16,7 @@ const pillars = [
   {
     icon: FiAward,
     title: "Capacidad full stack",
-    body: "Construyo el frontend cuando el proyecto lo necesita. Experiencia profesional con React y Next.js en aplicaciones web internas dentro de un entorno corporativo (HPE).",
+    body: "Construyo el frontend cuando el proyecto lo necesita. Experiencia profesional con React y Next.js en aplicaciones web dentro de un entorno corporativo (HPE).",
   },
 ];
 
@@ -31,8 +31,8 @@ export default function About() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {pillars.map((p, i) => (
           <Reveal key={p.title} delay={i}>
-            <article className="relative h-full p-6 overflow-hidden border rounded-2xl border-zinc-200 dark:border-white/10 bg-white/60 dark:bg-zinc-900/40 backdrop-blur-md hover:border-brand-500/50 transition-colors">
-              <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-brand-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <article className="relative h-full p-6 overflow-hidden transition-colors border rounded-2xl border-zinc-200 dark:border-white/10 bg-white/60 dark:bg-zinc-900/40 backdrop-blur-md hover:border-brand-500/50">
+              <div className="absolute inset-x-0 h-px transition-opacity opacity-0 -top-px bg-gradient-to-r from-transparent via-brand-500/40 to-transparent group-hover:opacity-100" />
               <div className="inline-flex items-center justify-center w-10 h-10 mb-5 text-brand-600 dark:text-brand-400 bg-brand-500/10 rounded-xl">
                 <p.icon className="w-5 h-5" />
               </div>

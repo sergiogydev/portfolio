@@ -106,7 +106,6 @@ export const stackGroups = [
     items: [
       { name: "Claude", icon: FiCpu },
       { name: "GitHub Copilot", icon: SiGithub },
-      { name: "Cursor", icon: FiTerminal },
     ],
   },
 ];

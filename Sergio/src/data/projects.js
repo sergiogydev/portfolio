@@ -5,19 +5,19 @@ export const projects = [
     role: "Backend lead · Soluciones Smart de Territorio",
     period: "2025 — Actualidad",
     description:
-      "Diseño e implementación de APIs REST en Laravel y NestJS para aplicaciones empresariales, con modelado de datos relacionales en PostgreSQL y MariaDB. Trabajo end-to-end: arquitectura, lógica de negocio, despliegue y mantenimiento en producción.",
+      "Diseño e implementación de APIs REST en Python, Laravel y NestJS para aplicaciones empresariales, con modelado de datos relacionales en PostgreSQL y MariaDB. Trabajo end-to-end: arquitectura, lógica de negocio, despliegue y mantenimiento en producción.",
     highlights: [
-      "Arquitectura backend en Laravel + NestJS",
+      "Arquitectura backend en Python + Laravel + NestJS",
       "Modelado y administración de bases de datos relacionales",
       "Despliegue y mantenimiento de servidores",
     ],
-    stack: ["Laravel", "NestJS", "PostgreSQL", "MariaDB", "Docker"],
+    stack: ["Python", "Laravel", "NestJS", "PostgreSQL", "MariaDB", "Docker"],
     accent: "from-brand-500/40 via-brand-500/10 to-transparent",
     type: "Backend · APIs",
   },
   {
     id: "hpe-internal",
-    title: "Apps web internas para entorno corporativo",
+    title: "Apps web para entorno corporativo",
     role: "Desarrollador web · CDS (Hewlett Packard Enterprise)",
     period: "2024 — 2025",
     description:

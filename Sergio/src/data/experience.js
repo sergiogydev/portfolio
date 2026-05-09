@@ -16,7 +16,7 @@ export const experiences = [
       "Configuración y mantenimiento de servidores en producción.",
       "Ciclo completo: análisis, implementación, pruebas y despliegue.",
     ],
-    stack: ["Laravel", "NestJS", "PostgreSQL", "MariaDB", "React", "Flutter", "Kotlin"],
+    stack: ["Python", "Laravel", "NestJS", "PostgreSQL", "MariaDB", "React", "Flutter", "Kotlin"],
   },
   {
     id: "electro-garpa",
@@ -29,9 +29,8 @@ export const experiences = [
     bullets: [
       "Administración de la base de datos empresarial y la web corporativa.",
       "Gestión de infraestructura tecnológica y soporte técnico general.",
-      "Trabajo directo con sistemas críticos y servidores en producción.",
     ],
-    stack: ["MySQL", "Servidores", "Infraestructura", "Soporte"],
+    stack: ["Infraestructura", "Soporte", "Factusol (Microsoft Access)"],
   },
   {
     id: "hpe",
@@ -40,9 +39,9 @@ export const experiences = [
     period: "Oct. 2024 — Ene. 2025",
     location: "León · Híbrido",
     summary:
-      "Desarrollo de aplicaciones web internas en una multinacional, integrado en equipo profesional con metodologías reales.",
+      "Desarrollo de aplicaciones web en una multinacional, integrado en equipo profesional con metodologías reales.",
     bullets: [
-      "Apps web internas con Next.js, foco en rendimiento y experiencia de usuario.",
+      "Apps web desarrladas en Next.js, foco en rendimiento y experiencia de usuario.",
       "Integración en un equipo profesional y flujos de trabajo empresariales.",
     ],
     stack: ["Next.js", "React", "JavaScript"],
