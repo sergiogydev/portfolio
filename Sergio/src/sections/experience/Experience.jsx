@@ -1,84 +1,97 @@
-import { motion } from "framer-motion";
-
-const experiences = [
-  {
-    title: "Programador Full Stack",
-    company: "Soluciones Smart de Territorio",
-    period: "Septiembre 2025 – Actualidad",
-    location: "León",
-    description: "Desarrollo de aplicaciones web participando tanto en tareas de frontend como de backend, trabajando en equipo y aplicando buenas prácticas de desarrollo en entornos reales.",
-    color: "indigo"
-  },
-  {
-    title: "Prácticas Universitarias",
-    company: "CDS (HP Enterprise Company)",
-    period: "Octubre 2024 – Enero 2025",
-    location: "León (Híbrido)",
-    description: "Desarrollo de aplicaciones web utilizando Next.js, adquiriendo experiencia práctica en proyectos profesionales y flujos de trabajo reales.",
-    color: "purple"
-  },
-  {
-    title: "Prácticas Universitarias",
-    company: "Certitec",
-    period: "Julio 2024 – Septiembre 2024",
-    location: "Astorga",
-    description: "Desarrollo de soluciones de programación y trabajo con bases de datos SQL, reforzando la lógica y el enfoque práctico del desarrollo.",
-    color: "pink"
-  },
-  {
-    title: "Técnico",
-    company: "Electro Garpa S.L.",
-    period: "Julio 2022 – Septiembre 2025",
-    location: "Astorga",
-    description: "Experiencia clave en organización, responsabilidad y resolución de problemas, valores que aplico directamente en el desarrollo de software.",
-    color: "blue"
-  }
-];
+import { FiMapPin } from "react-icons/fi";
+import Section from "../../components/ui/Section";
+import Reveal from "../../components/ui/Reveal";
+import { experiences } from "../../data/experience";
 
 export default function Experience() {
   return (
-    <section
+    <Section
       id="experience"
-      className="max-w-3xl lg:max-w-4xl xl:max-w-5xl px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 mx-auto scroll-mt-16 lg:scroll-mt-32"
+      eyebrow="03 · Experiencia"
+      title="Trayectoria construida en entornos reales."
+      description="De técnico informático a programador full stack en empresas reales (HPE, Soluciones Smart de Territorio, Certitec). Cada parada ha sumado bagaje en backend, datos y producción."
     >
-      {/* Title */}
-      <motion.div 
-        className="mb-6 sm:mb-8 lg:mb-10"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <span className="block mb-2 text-lg sm:text-xl lg:text-2xl font-bold tracking-wide bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent uppercase">
-          Experiencia
-        </span>
-      </motion.div>
+      <ol className="relative">
+        <span
+          className="absolute top-0 bottom-0 left-3 w-px bg-gradient-to-b from-brand-500/40 via-zinc-200 to-transparent dark:via-white/10 sm:left-4"
+          aria-hidden
+        />
+        <div className="space-y-10">
+          {experiences.map((exp, i) => (
+            <Reveal key={exp.id} delay={i} as="li" className="relative">
+              <span
+                className={`absolute left-0 top-1.5 w-7 h-7 rounded-full border ${
+                  exp.current
+                    ? "border-brand-500 bg-brand-500/20"
+                    : "border-zinc-300 dark:border-white/10 bg-white dark:bg-zinc-950"
+                } flex items-center justify-center sm:left-0`}
+                aria-hidden
+              >
+                <span
+                  className={`w-2.5 h-2.5 rounded-full ${
+                    exp.current
+                      ? "bg-brand-500 animate-pulse"
+                      : "bg-zinc-400 dark:bg-white/30"
+                  }`}
+                />
+              </span>
 
-      {/* Content */}
-      <div className="space-y-6 sm:space-y-8">
-        {experiences.map((exp, index) => (
-          <motion.div
-            key={index}
-            className="group relative p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 dark:border-slate-700 overflow-hidden"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
-            whileHover={{ scale: 1.02, x: 4 }}
-          >
-            <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-${exp.color}-400 to-${exp.color}-600 transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300`} />
-            
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-slate-900 dark:text-slate-100 mb-1">
-              {exp.title} · <span className="text-indigo-600 dark:text-indigo-400">{exp.company}</span>
-            </h3>
-            <p className="mb-3 text-sm sm:text-base text-slate-500 dark:text-slate-400 flex items-center gap-2">
-              <span className="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              {exp.period} · {exp.location}
-            </p>
-            <p className="text-base sm:text-lg lg:text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
-              {exp.description}
-            </p>
-          </motion.div>
-        ))}
-      </div>
-    </section>
+              <div className="pl-12 sm:pl-16">
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
+                  <h3 className="text-lg sm:text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+                    {exp.role}
+                  </h3>
+                  <span className="text-zinc-400 dark:text-zinc-600">·</span>
+                  <span className="text-base font-medium text-brand-600 dark:text-brand-400">
+                    {exp.company}
+                  </span>
+                  {exp.current && (
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 ml-1 font-mono text-[10px] uppercase tracking-wider rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 border border-brand-500/30">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse" />
+                      Actual
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-4 font-mono text-xs text-zinc-500 dark:text-zinc-500">
+                  <span>{exp.period}</span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <FiMapPin className="w-3 h-3" />
+                    {exp.location}
+                  </span>
+                </div>
+
+                <p className="mb-4 text-sm sm:text-base leading-relaxed text-zinc-700 dark:text-zinc-300">
+                  {exp.summary}
+                </p>
+
+                <ul className="mb-5 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400">
+                  {exp.bullets.map((b) => (
+                    <li key={b} className="relative pl-5">
+                      <span
+                        className="absolute left-0 top-2 w-1.5 h-1.5 rounded-full bg-brand-500/70"
+                        aria-hidden
+                      />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap gap-1.5">
+                  {exp.stack.map((s) => (
+                    <span
+                      key={s}
+                      className="px-2.5 py-1 font-mono text-[11px] rounded-md border border-zinc-200 dark:border-white/10 bg-white/60 dark:bg-zinc-900/50 text-zinc-700 dark:text-zinc-300"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </ol>
+    </Section>
   );
 }
