@@ -4,7 +4,6 @@ import {
   FiLinkedin,
   FiMail,
   FiMapPin,
-  FiPhone,
 } from "react-icons/fi";
 import Section from "../../components/ui/Section";
 import Reveal from "../../components/ui/Reveal";
@@ -29,12 +28,6 @@ const channels = [
     label: "GitHub",
     value: profile.githubHandle,
     href: profile.github,
-  },
-  {
-    icon: FiPhone,
-    label: "Teléfono",
-    value: profile.phone,
-    href: `tel:${profile.phone.replace(/\s+/g, "")}`,
   },
 ];
 

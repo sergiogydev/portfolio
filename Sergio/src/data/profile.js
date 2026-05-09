@@ -14,7 +14,7 @@ export const profile = {
 };
 
 export const stats = [
-  { label: "Años de experiencia", value: "3,5+" },
+  { label: "Años de experiencia", value: "3+" },
   { label: "Stacks backend en producción", value: "5" },
   { label: "Bases de datos gestionadas", value: "3" },
   { label: "Idiomas", value: "ES · EN" },
