@@ -1,204 +1,158 @@
-import * as React from "react";
-import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { CaretDownIcon, HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
+import { useContext, useEffect, useState } from "react";
+import { FiMenu, FiX, FiGithub, FiDownload } from "react-icons/fi";
 import { navigation } from "../../data/navigation";
-import logo from "../../assets/images/profile.png";
-import { Link } from "react-router-dom";
+import { profile } from "../../data/profile";
+import { ThemeToggleButton } from "../buttons/Buttons";
+import { ThemeContext } from "../../context/ThemeContext";
 
+function useScrollSpy(ids, offset = 120) {
+  const [active, setActive] = useState(ids[0]);
 
+  useEffect(() => {
+    const handler = () => {
+      const scrollY = window.scrollY + offset;
+      let current = ids[0];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) current = id;
+      }
+      setActive(current);
+    };
+    handler();
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, [ids, offset]);
+
+  return active;
+}
 
 export default function CardNav() {
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const active = useScrollSpy(navigation.map((n) => n.id));
+  useContext(ThemeContext); // ensure re-render on theme switch for any consumers
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <>
-      {/* Desktop Navigation */}
-      <NavigationMenu.Root className="fixed z-50 hidden -translate-x-1/2 top-4 left-1/2 lg:block">
-        <NavigationMenu.List className="flex items-center gap-2 px-4 py-2 min-h-[56px] border shadow-xl rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-slate-200/60 dark:border-slate-700/60">
-        
-        {navigation.map((nav) => (
-          <NavItem key={nav.label} label={nav.label}>
-            {nav.items.map((item) => (
-              <MenuItem
-                key={item.title}
-                title={item.title}
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "backdrop-blur-md bg-white/70 dark:bg-zinc-950/70 border-b border-zinc-200/60 dark:border-white/10"
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
+      <div className="flex items-center justify-between max-w-6xl px-4 mx-auto h-16 sm:px-6 lg:px-8">
+        <a
+          href="#top"
+          className="flex items-center gap-2 font-mono text-sm tracking-tight text-zinc-900 dark:text-zinc-100"
+          aria-label="Inicio"
+        >
+          <span className="inline-flex items-center justify-center w-8 h-8 rounded-md bg-brand-500 text-zinc-950 font-bold">
+            S
+          </span>
+          <span className="hidden sm:inline">sergio<span className="text-brand-500">.dev</span></span>
+        </a>
+
+        <nav className="items-center hidden gap-1 md:flex">
+          {navigation.map((item) => {
+            const isActive = active === item.id;
+            return (
+              <a
+                key={item.id}
                 href={item.href}
+                className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  isActive
+                    ? "text-brand-600 dark:text-brand-400"
+                    : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+                }`}
               >
-                {item.description}
-              </MenuItem>
-            ))}
-          </NavItem>
-        ))}
+                {item.label}
+                {isActive && (
+                  <span className="absolute inset-x-3 -bottom-px h-px bg-brand-500" />
+                )}
+              </a>
+            );
+          })}
+        </nav>
 
-        <NavigationMenu.Item>
-          <NavigationMenu.Link
-            href="https://github.com/reactstackdev"
+        <div className="flex items-center gap-2">
+          <a
+            href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 text-sm font-medium transition-colors rounded-xl text-slate-800 dark:text-slate-100 hover:bg-slate-200/60 dark:hover:bg-slate-700/60"
+            className="hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-full border border-zinc-200 dark:border-white/10 bg-white/80 dark:bg-zinc-900/70 backdrop-blur-md text-zinc-700 dark:text-zinc-200 hover:text-brand-600 dark:hover:text-brand-400 hover:border-brand-500/50 transition-colors"
+            aria-label="GitHub"
           >
-            GitHub
-          </NavigationMenu.Link>
-        </NavigationMenu.Item>
-
-        <NavigationMenu.Item>
-          <NavigationMenu.Link
-            href="/AltaCV_Template.pdf"
+            <FiGithub className="w-5 h-5" />
+          </a>
+          <a
+            href={profile.cvUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 text-sm font-medium transition-colors rounded-xl text-slate-800 dark:text-slate-100 hover:bg-slate-200/60 dark:hover:bg-slate-700/60"
+            className="hidden sm:inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-zinc-950 bg-brand-500 rounded-full hover:bg-brand-400 transition-colors"
           >
+            <FiDownload className="w-4 h-4" />
             CV
-          </NavigationMenu.Link>
-        </NavigationMenu.Item>
-
-        <NavigationMenu.Item>
-        <NavigationMenu.Link asChild>
-          <Link
-            to="/"
-            className="flex items-center justify-center w-10 h-10 overflow-hidden transition rounded-full hover:ring-2 hover:ring-indigo-500"
-            aria-label="Inicio"
-          >
-            <img
-              src={logo}
-              alt="Inicio"
-              className="object-cover w-full h-full"
-            />
-          </Link>
-        </NavigationMenu.Link>
-      </NavigationMenu.Item>
-
-
-        </NavigationMenu.List>
-      </NavigationMenu.Root>
-
-      {/* Mobile Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-[60] lg:hidden">
-        <div className="flex items-center justify-between px-4 py-3 border-b shadow-lg bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-slate-200/60 dark:border-slate-700/60">
-          <Link to="/" className="flex items-center gap-2">
-            <img
-              src={logo}
-              alt="Inicio"
-              className="w-10 h-10 rounded-full"
-            />
-            {/* <span className="font-semibold text-slate-900 dark:text-slate-100">Portfolio</span> */}
-          </Link>
-          
+          </a>
+          <ThemeToggleButton />
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
-            aria-label="Toggle menu"
+            onClick={() => setOpen(!open)}
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-zinc-200 dark:border-white/10 bg-white/80 dark:bg-zinc-900/70 backdrop-blur-md text-zinc-700 dark:text-zinc-200 md:hidden"
+            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={open}
           >
-            {mobileMenuOpen ? (
-              <Cross1Icon className="w-6 h-6 text-slate-900 dark:text-slate-100" />
-            ) : (
-              <HamburgerMenuIcon className="w-6 h-6 text-slate-900 dark:text-slate-100" />
-            )}
+            {open ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Menu Dropdown */}
-        {mobileMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-700/60 shadow-2xl max-h-[calc(100vh-64px)] overflow-y-auto">
-            <div className="px-4 py-4 space-y-4">
-              {navigation.map((nav) => (
-                <div key={nav.label} className="space-y-2">
-                  <h3 className="text-sm font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400">
-                    {nav.label}
-                  </h3>
-                  <div className="space-y-1">
-                    {nav.items.map((item) => (
-                      <Link
-                        key={item.title}
-                        to={item.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="block px-4 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
-                      >
-                        <div className="text-sm font-medium text-slate-900 dark:text-slate-100">
-                          {item.title}
-                        </div>
-                        <p className="text-xs text-slate-600 dark:text-slate-400">
-                          {item.description}
-                        </p>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
-              
-              <div className="flex gap-2 pt-4 border-t border-slate-200 dark:border-slate-700">
+      {open && (
+        <div className="md:hidden border-t border-zinc-200/60 dark:border-white/10 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md">
+          <nav className="flex flex-col px-4 py-4 max-w-6xl mx-auto gap-1">
+            {navigation.map((item) => {
+              const isActive = active === item.id;
+              return (
                 <a
-                  href="https://github.com/reactstackdev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 px-4 py-3 text-sm font-medium text-center transition-colors rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700"
-                  onClick={() => setMobileMenuOpen(false)}
+                  key={item.id}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className={`px-3 py-3 rounded-lg text-base font-medium ${
+                    isActive
+                      ? "text-brand-600 dark:text-brand-400 bg-brand-500/10"
+                      : "text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-white/5"
+                  }`}
                 >
-                  GitHub
+                  {item.label}
                 </a>
-                <a
-                  href="/AltaCV_Template.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 px-4 py-3 text-sm font-medium text-center transition-colors rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  CV
-                </a>
-              </div>
+              );
+            })}
+            <div className="flex gap-2 mt-2">
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium rounded-lg border border-zinc-200 dark:border-white/10 text-zinc-700 dark:text-zinc-200"
+              >
+                <FiGithub className="w-4 h-4" /> GitHub
+              </a>
+              <a
+                href={profile.cvUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium rounded-lg bg-brand-500 text-zinc-950"
+              >
+                <FiDownload className="w-4 h-4" /> CV
+              </a>
             </div>
-          </div>
-        )}
-      </nav>
-    </>
+          </nav>
+        </div>
+      )}
+    </header>
   );
 }
-
-function NavItem({ label, children }) {
-  return (
-    <NavigationMenu.Item className="relative">
-      <NavigationMenu.Trigger className="flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors cursor-pointer rounded-xl text-slate-800 dark:text-slate-100 hover:bg-slate-200/60 dark:hover:bg-slate-700/60">
-        {label}
-        <CaretDownIcon className="h-4 w-4 transition-transform data-[state=open]:rotate-180" />
-      </NavigationMenu.Trigger>
-
-      <NavigationMenu.Content
-        className="
-          absolute left-0 top-full mt-3
-          w-[260px]
-          rounded-2xl
-          bg-white dark:bg-slate-900
-          shadow-xl
-          border border-slate-200 dark:border-slate-700
-          p-2
-          data-[motion=from-start]:animate-in
-          data-[motion=from-start]:fade-in
-          data-[motion=from-start]:slide-in-from-top-2
-        "
-      >
-        <ul className="space-y-1">{children}</ul>
-      </NavigationMenu.Content>
-    </NavigationMenu.Item>
-  );
-}
-
-function MenuItem({ title, children, href }) {
-  return (
-    <li>
-      <NavigationMenu.Link asChild>
-        <Link
-          to={href}
-          className="block px-4 py-3 transition-colors rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"
-        >
-          <div className="text-sm font-medium text-slate-900 dark:text-slate-100">
-            {title}
-          </div>
-          <p className="text-xs text-slate-600 dark:text-slate-400">
-            {children}
-          </p>
-        </Link>
-      </NavigationMenu.Link>
-    </li>
-  );
-}
-

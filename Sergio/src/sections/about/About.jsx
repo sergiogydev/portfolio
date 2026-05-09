@@ -1,66 +1,51 @@
-import { motion } from "framer-motion";
+import { FiCode, FiServer, FiAward } from "react-icons/fi";
+import Section from "../../components/ui/Section";
+import Reveal from "../../components/ui/Reveal";
+
+const pillars = [
+  {
+    icon: FiServer,
+    title: "Backend en producción",
+    body: "Más de 4 años trabajando con sistemas reales: APIs REST, lógica de negocio y bases de datos. He pasado por administración de infraestructura, software a medida y backend empresarial con Laravel y NestJS.",
+  },
+  {
+    icon: FiCode,
+    title: "Foco en Python y FastAPI",
+    body: "Mi carrera está orientada al desarrollo backend con Python y FastAPI, con bases sólidas de programación orientada a objetos, ML y código limpio respaldadas por formación continua en DataCamp.",
+  },
+  {
+    icon: FiAward,
+    title: "Capacidad full stack",
+    body: "Construyo el frontend cuando el proyecto lo necesita. Experiencia profesional con React y Next.js en aplicaciones web internas dentro de un entorno corporativo (HPE).",
+  },
+];
 
 export default function About() {
   return (
-    <section
+    <Section
       id="about"
-      className="max-w-3xl lg:max-w-4xl xl:max-w-5xl px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 mx-auto scroll-mt-16 lg:scroll-mt-32"
+      eyebrow="01 · Sobre mí"
+      title="Backend Developer formado en producción, no en tutoriales."
+      description="Ingeniero Informático por la Universidad de León, con experiencia real desde 2022 administrando bases de datos y sistemas críticos. Hoy enfoco mi carrera en escribir código backend limpio, mantenible y orientado a producto."
     >
-      {/* Title */}
-      <motion.div 
-        className="mb-6 sm:mb-8 lg:mb-10"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <span className="block mb-2 text-lg sm:text-xl lg:text-2xl font-bold tracking-wide bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent uppercase">
-          ¿Quién soy?
-        </span>
-      </motion.div>
-
-      {/* Content */}
-      <div className="space-y-4 sm:space-y-5 lg:space-y-6">
-        <motion.div
-          className="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.5 }}
-          whileHover={{ scale: 1.02 }}
-        >
-          <p className="text-base sm:text-lg lg:text-xl text-slate-700 dark:text-slate-300">
-            Soy <strong className="text-indigo-600 dark:text-indigo-400">Sergio García Yugueros</strong>, desarrollador Full Stack con
-            especial interés en el desarrollo frontend con <strong className="text-indigo-600 dark:text-indigo-400">React</strong> y
-            experiencia en backend con <strong className="text-indigo-600 dark:text-indigo-400">Node.js</strong>.
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-slate-700 hover:border-purple-300 dark:hover:border-purple-600"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          whileHover={{ scale: 1.02 }}
-        >
-          <p className="text-base sm:text-lg lg:text-xl text-slate-700 dark:text-slate-300">
-            Me enfoco en crear aplicaciones web bien estructuradas y mantenibles,
-            cuidando la experiencia de usuario y la calidad del código.
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-slate-700 hover:border-pink-300 dark:hover:border-pink-600"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          whileHover={{ scale: 1.02 }}
-        >
-          <p className="text-base sm:text-lg lg:text-xl text-slate-700 dark:text-slate-300">
-            He trabajado en entornos profesionales donde el compromiso, la
-            organización y el trabajo en equipo son fundamentales, valores que
-            aplico también en el desarrollo de software.
-          </p>
-        </motion.div>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        {pillars.map((p, i) => (
+          <Reveal key={p.title} delay={i}>
+            <article className="relative h-full p-6 overflow-hidden border rounded-2xl border-zinc-200 dark:border-white/10 bg-white/60 dark:bg-zinc-900/40 backdrop-blur-md hover:border-brand-500/50 transition-colors">
+              <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-brand-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="inline-flex items-center justify-center w-10 h-10 mb-5 text-brand-600 dark:text-brand-400 bg-brand-500/10 rounded-xl">
+                <p.icon className="w-5 h-5" />
+              </div>
+              <h3 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                {p.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                {p.body}
+              </p>
+            </article>
+          </Reveal>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }

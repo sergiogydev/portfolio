@@ -1,96 +1,96 @@
-import { motion } from "framer-motion";
-
-const projectHighlights = [
-  {
-    title: "Proyectos Personales",
-    description: "He desarrollado diversos proyectos personales enfocados principalmente en el desarrollo frontend con React.",
-    icon: "🖥️",
-    gradient: "from-blue-500 to-indigo-600"
-  },
-  {
-    title: "Arquitectura de Componentes",
-    description: "Consolidación de conocimientos en arquitectura de componentes, reutilización de código y buenas prácticas de desarrollo.",
-    icon: "🧩",
-    gradient: "from-purple-500 to-pink-600"
-  },
-  {
-    title: "Repositorio en GitHub",
-    description: "Mantengo un repositorio en crecimiento donde publico aplicaciones web utilizando React y Node.js.",
-    icon: "📚",
-    gradient: "from-green-500 to-teal-600"
-  },
-  {
-    title: "Aprendizaje Continuo",
-    description: "Cada proyecto está pensado como una oportunidad de aprendizaje, priorizando la calidad del código y la resolución de problemas reales.",
-    icon: "🎯",
-    gradient: "from-orange-500 to-red-600"
-  }
-];
+import { FiArrowUpRight, FiGithub } from "react-icons/fi";
+import Section from "../../components/ui/Section";
+import Reveal from "../../components/ui/Reveal";
+import { projects } from "../../data/projects";
+import { profile } from "../../data/profile";
 
 export default function Projects() {
   return (
-    <section
+    <Section
       id="projects"
-      className="max-w-3xl lg:max-w-4xl xl:max-w-5xl px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 mx-auto scroll-mt-16 lg:scroll-mt-32"
+      eyebrow="04 · Proyectos destacados"
+      title="Trabajo real, no demos."
+      description="Selección de iniciativas profesionales en las que he participado como backend o full stack. Cada proyecto incluye contexto, stack y aporte concreto."
     >
-      {/* Title */}
-      <motion.div 
-        className="mb-6 sm:mb-8 lg:mb-10"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <span className="block mb-2 text-lg sm:text-xl lg:text-2xl font-bold tracking-wide bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent uppercase">
-          Proyectos
-        </span>
-      </motion.div>
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        {projects.map((p, i) => (
+          <Reveal key={p.id} delay={i}>
+            <article className="relative h-full overflow-hidden border rounded-2xl border-zinc-200 dark:border-white/10 bg-white/60 dark:bg-zinc-900/40 backdrop-blur-md hover:border-brand-500/40 transition-colors group">
+              <div
+                className={`absolute -top-24 -right-24 w-72 h-72 rounded-full blur-3xl bg-gradient-to-br ${p.accent} opacity-70 group-hover:opacity-100 transition-opacity`}
+                aria-hidden
+              />
+              <div className="relative p-6 sm:p-7">
+                <div className="flex items-center justify-between mb-5 font-mono text-[11px] uppercase tracking-wider text-zinc-500 dark:text-zinc-500">
+                  <span className="text-brand-600 dark:text-brand-400">
+                    {p.type}
+                  </span>
+                  <span>{p.period}</span>
+                </div>
 
-      {/* Content */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8">
-        {projectHighlights.map((item, index) => (
-          <motion.div
-            key={index}
-            className="group relative p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 dark:border-slate-700 overflow-hidden"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
-            whileHover={{ scale: 1.05, rotate: 1 }}
-          >
-            <div className={`absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br ${item.gradient} opacity-10 rounded-full transition-all duration-300 group-hover:scale-150 group-hover:opacity-20`} />
-            
-            <div className="relative">
-              <div className="text-4xl mb-3">{item.icon}</div>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
-                {item.title}
-              </h3>
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
-                {item.description}
-              </p>
-            </div>
-          </motion.div>
+                <h3 className="mb-1 text-xl font-semibold sm:text-2xl text-zinc-900 dark:text-zinc-100">
+                  {p.title}
+                </h3>
+                <p className="mb-5 text-sm text-zinc-500 dark:text-zinc-400">
+                  {p.role}
+                </p>
+
+                <p className="mb-5 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
+                  {p.description}
+                </p>
+
+                <ul className="mb-5 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400">
+                  {p.highlights.map((h) => (
+                    <li key={h} className="relative pl-5">
+                      <span
+                        className="absolute left-0 top-2 w-1.5 h-1.5 rounded-full bg-brand-500/70"
+                        aria-hidden
+                      />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap gap-1.5">
+                  {p.stack.map((s) => (
+                    <span
+                      key={s}
+                      className="px-2.5 py-1 font-mono text-[11px] rounded-md border border-zinc-200 dark:border-white/10 bg-white/60 dark:bg-zinc-900/50 text-zinc-700 dark:text-zinc-300"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          </Reveal>
         ))}
       </div>
 
-      {/* CTA para GitHub */}
-      <motion.div
-        className="p-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl shadow-xl text-center"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-        whileHover={{ scale: 1.02 }}
-      >
-        <p className="text-white text-base sm:text-lg lg:text-xl mb-4 font-medium">
-          🚀 Puedes acceder a mi repositorio de GitHub desde la barra de navegación
-        </p>
+      <Reveal delay={projects.length} className="mt-10">
         <a
-          href="https://github.com/reactstackdev"
+          href={profile.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block px-6 py-3 bg-white text-indigo-600 font-bold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+          className="group relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-6 sm:p-7 overflow-hidden border rounded-2xl border-zinc-200 dark:border-white/10 bg-gradient-to-br from-brand-500/10 via-brand-500/5 to-transparent hover:border-brand-500/50 transition-colors"
         >
-          Ver Repositorio
+          <div>
+            <div className="font-mono text-[11px] uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-2">
+              Más en GitHub
+            </div>
+            <h3 className="text-lg font-semibold sm:text-xl text-zinc-900 dark:text-zinc-100">
+              Repositorio personal con experimentos y proyectos open source
+            </h3>
+            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+              Donde practico nuevos stacks, pruebo arquitecturas y mantengo proyectos en evolución.
+            </p>
+          </div>
+          <span className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-medium rounded-full bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900 group-hover:translate-x-1 transition-transform">
+            <FiGithub className="w-4 h-4" /> Ver perfil
+            <FiArrowUpRight className="w-4 h-4" />
+          </span>
         </a>
-      </motion.div>
-    </section>
+      </Reveal>
+    </Section>
   );
 }
