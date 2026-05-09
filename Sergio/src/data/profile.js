@@ -4,7 +4,6 @@ export const profile = {
   tagline: "APIs REST, datos y arquitectura backend escalable.",
   location: "León, España",
   email: "sgarciayugueros@gmail.com",
-  phone: "+34 640 576 670",
   github: "https://github.com/reactstackdev",
   githubHandle: "@reactstackdev",
   linkedin:
