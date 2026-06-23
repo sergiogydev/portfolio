@@ -1,18 +1,48 @@
 export const projects = [
   {
+    id: "tutortrack",
+    title: "TutorTrack",
+    subtitle: "Plataforma de gestión para profesionales",
+    role: "Proyecto personal · Backend & arquitectura",
+    period: "2026",
+    featured: true,
+    description:
+      "Plataforma SaaS construida de cero con FastAPI y arquitectura limpia (services, repositories, schemas, migraciones con Alembic). Implementa lógica de negocio real, cobros con Stripe e IA generativa, desplegada en AWS con CI/CD.",
+    highlights: [
+      "Arquitectura limpia en FastAPI: services, repositories, schemas y migraciones con Alembic.",
+      "Lógica de negocio real: gestión de clientes, bonos de sesiones, consumo y renovación automática.",
+      "Integración con Stripe: cobros puntuales, suscripciones y reconciliación de pagos vía webhooks.",
+      "LLM integrado (OpenAI / Claude API) para generar resúmenes de progreso del alumno.",
+      "PostgreSQL + Docker + pytest; despliegue en AWS (EC2/RDS) con CI/CD vía GitHub Actions.",
+    ],
+    stack: [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Stripe",
+      "OpenAI / Claude",
+      "Docker",
+      "AWS",
+      "pytest",
+      "GitHub Actions",
+    ],
+    accent: "from-brand-500/40 via-brand-500/10 to-transparent",
+    type: "Backend · SaaS",
+  },
+  {
     id: "smart-backend",
     title: "Plataformas backend empresariales",
-    role: "Backend lead · Soluciones Smart de Territorio",
+    role: "Backend · Soluciones Smart de Territorio",
     period: "2025 — Actualidad",
     description:
       "Diseño e implementación de APIs REST en Python, Laravel y NestJS para aplicaciones empresariales, con modelado de datos relacionales en PostgreSQL y MariaDB. Trabajo end-to-end: arquitectura, lógica de negocio, despliegue y mantenimiento en producción.",
     highlights: [
       "Arquitectura backend en Python + Laravel + NestJS",
       "Modelado y administración de bases de datos relacionales",
-      "Despliegue y mantenimiento de servidores",
+      "Despliegue y mantenimiento de servidores en producción",
     ],
     stack: ["Python", "Laravel", "NestJS", "PostgreSQL", "MariaDB", "Docker"],
-    accent: "from-brand-500/40 via-brand-500/10 to-transparent",
+    accent: "from-violet-500/40 via-violet-500/10 to-transparent",
     type: "Backend · APIs",
   },
   {
@@ -28,7 +58,7 @@ export const projects = [
       "Trabajo en equipo con flujos profesionales",
     ],
     stack: ["Next.js", "React", "JavaScript"],
-    accent: "from-violet-500/40 via-violet-500/10 to-transparent",
+    accent: "from-sky-500/40 via-sky-500/10 to-transparent",
     type: "Frontend · Web Apps",
   },
   {
@@ -44,7 +74,7 @@ export const projects = [
       "Refuerzo de fundamentos de ingeniería de software",
     ],
     stack: ["SQL", "MySQL", "Backend"],
-    accent: "from-sky-500/40 via-sky-500/10 to-transparent",
+    accent: "from-amber-500/40 via-amber-500/10 to-transparent",
     type: "Backend · Datos",
   },
 ];

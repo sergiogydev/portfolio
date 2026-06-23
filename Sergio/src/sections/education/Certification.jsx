@@ -54,7 +54,7 @@ export default function Contact() {
               ¿Tienes un proyecto backend en mente?
             </h2>
             <p className="mt-5 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
-              Estoy abierto a oportunidades como Python Backend Developer (FastAPI, APIs REST, PostgreSQL) y a posiciones full stack. La forma más rápida de contactarme es por email.
+              Estoy abierto a oportunidades como Backend Engineer (Python, FastAPI, APIs REST, PostgreSQL, AWS) y a posiciones full stack. La forma más rápida de contactarme es por email.
             </p>
 
             <div className="flex flex-wrap gap-3 mt-8">

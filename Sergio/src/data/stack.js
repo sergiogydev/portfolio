@@ -1,8 +1,8 @@
 import {
   SiPython,
   SiFastapi,
-  SiLaravel,
-  SiNestjs,
+  SiSqlalchemy,
+  SiPydantic,
   SiNodedotjs,
   SiReact,
   SiNextdotjs,
@@ -13,41 +13,44 @@ import {
   SiMysql,
   SiGit,
   SiDocker,
-  SiFlutter,
-  SiKotlin,
-  SiGithub,
+  SiGithubactions,
+  SiStripe,
+  SiOpenai,
+  SiAnthropic,
+  SiPytest,
 } from "react-icons/si";
 import {
   FiServer,
   FiDatabase,
   FiLayout,
-  FiTerminal,
-  FiCpu,
-  FiShield,
+  FiCloud,
   FiZap,
+  FiCheckCircle,
+  FiLayers,
+  FiGitBranch,
 } from "react-icons/fi";
 
 export const stackGroups = [
   {
     id: "backend",
-    title: "Backend",
+    title: "Backend (núcleo)",
     description:
-      "Mi enfoque principal: diseñar APIs limpias, mantenibles y listas para producción.",
+      "Mi enfoque principal: APIs REST limpias y mantenibles con FastAPI, arquitectura por capas y código listo para producción.",
     icon: FiServer,
     accent: "from-brand-500/30 to-brand-500/0",
     items: [
       { name: "Python", icon: SiPython, level: "Principal" },
       { name: "FastAPI", icon: SiFastapi, level: "Principal" },
-      { name: "Laravel", icon: SiLaravel, level: "Producción" },
-      { name: "NestJS", icon: SiNestjs, level: "Producción" },
-      { name: "Node.js", icon: SiNodedotjs, level: "Producción" },
+      { name: "SQLAlchemy", icon: SiSqlalchemy, level: "Producción" },
+      { name: "Pydantic", icon: SiPydantic, level: "Producción" },
+      { name: "Alembic", icon: FiLayers, level: "Migraciones" },
     ],
   },
   {
     id: "data",
     title: "Bases de datos",
     description:
-      "Modelado relacional, optimización de consultas y administración en entornos reales.",
+      "Modelado relacional, optimización de consultas y administración en entornos reales de producción.",
     icon: FiDatabase,
     accent: "from-sky-500/30 to-sky-500/0",
     items: [
@@ -57,55 +60,58 @@ export const stackGroups = [
     ],
   },
   {
-    id: "frontend",
-    title: "Frontend",
+    id: "devops",
+    title: "DevOps & Cloud",
     description:
-      "Capacidad full stack: construyo interfaces modernas con React y Next.js cuando el proyecto lo requiere.",
-    icon: FiLayout,
+      "Empaquetado, integración continua y despliegue en la nube. Actualmente preparando la certificación AWS Cloud Practitioner.",
+    icon: FiCloud,
+    accent: "from-amber-500/30 to-amber-500/0",
+    items: [
+      { name: "Docker", icon: SiDocker, level: "Producción" },
+      { name: "AWS", icon: FiCloud, level: "En progreso" },
+      { name: "GitHub Actions", icon: SiGithubactions, level: "CI/CD" },
+      { name: "Git", icon: SiGit },
+    ],
+  },
+  {
+    id: "payments-ai",
+    title: "Pagos & IA",
+    description:
+      "Integración de cobros reales con Stripe y de modelos de lenguaje (OpenAI / Claude) en flujos backend.",
+    icon: FiZap,
     accent: "from-violet-500/30 to-violet-500/0",
+    items: [
+      { name: "Stripe", icon: SiStripe, level: "Pagos & webhooks" },
+      { name: "OpenAI API", icon: SiOpenai, level: "LLM" },
+      { name: "Anthropic / Claude", icon: SiAnthropic, level: "LLM" },
+    ],
+  },
+  {
+    id: "quality",
+    title: "Testing & Calidad",
+    description:
+      "Buenas prácticas como base: pruebas automatizadas, validación de datos y arquitectura limpia por capas.",
+    icon: FiCheckCircle,
+    accent: "from-emerald-500/30 to-emerald-500/0",
+    items: [
+      { name: "pytest", icon: SiPytest, level: "Testing" },
+      { name: "Arquitectura limpia", icon: FiLayers, level: "Services / Repos" },
+      { name: "CI/CD", icon: FiGitBranch, level: "Automatización" },
+    ],
+  },
+  {
+    id: "frontend",
+    title: "Frontend & otros (producción)",
+    description:
+      "Capacidad full stack: construyo interfaces con React/Next.js y he trabajado con otros stacks backend en producción.",
+    icon: FiLayout,
+    accent: "from-rose-500/30 to-rose-500/0",
     items: [
       { name: "React", icon: SiReact },
       { name: "Next.js", icon: SiNextdotjs },
       { name: "JavaScript", icon: SiJavascript },
       { name: "Tailwind CSS", icon: SiTailwindcss },
-    ],
-  },
-  {
-    id: "devops",
-    title: "DevOps & Tooling",
-    description:
-      "Empaquetado, despliegue y gestión de entornos productivos.",
-    icon: FiTerminal,
-    accent: "from-amber-500/30 to-amber-500/0",
-    items: [
-      { name: "Git", icon: SiGit },
-      { name: "Docker", icon: SiDocker },
-      { name: "GitHub", icon: SiGithub },
-      { name: "Cisco CyberOps", icon: FiShield },
-    ],
-  },
-  {
-    id: "mobile",
-    title: "Mobile & Cross-platform",
-    description:
-      "Experiencia construyendo apps nativas y multiplataforma como complemento al backend.",
-    icon: FiCpu,
-    accent: "from-rose-500/30 to-rose-500/0",
-    items: [
-      { name: "Flutter", icon: SiFlutter },
-      { name: "Kotlin", icon: SiKotlin },
-    ],
-  },
-  {
-    id: "ai",
-    title: "IA & Productividad",
-    description:
-      "Uso intensivo de IA para acelerar el flujo de desarrollo manteniendo calidad y revisión humana.",
-    icon: FiZap,
-    accent: "from-emerald-500/30 to-emerald-500/0",
-    items: [
-      { name: "Claude", icon: FiCpu },
-      { name: "GitHub Copilot", icon: SiGithub },
+      { name: "Laravel · NestJS · Node", icon: SiNodedotjs },
     ],
   },
 ];
@@ -113,14 +119,16 @@ export const stackGroups = [
 export const marqueeStack = [
   "Python",
   "FastAPI",
+  "SQLAlchemy",
   "PostgreSQL",
-  "Laravel",
-  "NestJS",
-  "Node.js",
+  "Stripe",
   "Docker",
-  "MariaDB",
+  "AWS",
+  "pytest",
+  "Alembic",
+  "OpenAI",
+  "GitHub Actions",
+  "Pydantic",
   "React",
   "Next.js",
-  "Git",
-  "MySQL",
 ];

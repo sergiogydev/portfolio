@@ -4,19 +4,19 @@ import Reveal from "../../components/ui/Reveal";
 
 const pillars = [
   {
-    icon: FiServer,
-    title: "Backend en producción",
-    body: "Más de 3 años y medio trabajando con sistemas reales: APIs REST, lógica de negocio y bases de datos. He pasado por administración de infraestructura, software a medida y backend empresarial con Laravel y NestJS.",
+    icon: FiCode,
+    title: "Python & FastAPI como núcleo",
+    body: "Especializado en desarrollo backend con Python y FastAPI: diseño de APIs REST, arquitectura limpia por capas (services, repositories, schemas) y bases de datos relacionales con PostgreSQL.",
   },
   {
-    icon: FiCode,
-    title: "Foco en Python y FastAPI",
-    body: "Mi carrera está orientada al desarrollo backend con Python y FastAPI, con bases sólidas de programación orientada a objetos, ML y código limpio respaldadas por formación continua en DataCamp.",
+    icon: FiServer,
+    title: "Buenas prácticas & Cloud",
+    body: "Enfoque actual en calidad y despliegue real: testing con pytest, contenedores con Docker, CI/CD con GitHub Actions y despliegue en AWS (EC2/RDS). Actualmente preparando la certificación AWS Cloud Practitioner.",
   },
   {
     icon: FiAward,
-    title: "Capacidad full stack",
-    body: "Construyo el frontend cuando el proyecto lo necesita. Experiencia profesional con React y Next.js en aplicaciones web dentro de un entorno corporativo (HPE).",
+    title: "IA integrada & full stack",
+    body: "Integro modelos de lenguaje (OpenAI / Claude) en sistemas backend reales y construyo el frontend cuando hace falta, con React y Next.js (experiencia profesional en HPE).",
   },
 ];
 
@@ -25,8 +25,8 @@ export default function About() {
     <Section
       id="about"
       eyebrow="01 · Sobre mí"
-      title="Backend Developer formado en producción, no en tutoriales."
-      description="Ingeniero Informático por la Universidad de León, con experiencia real desde 2022 administrando bases de datos y sistemas críticos. Hoy enfoco mi carrera en escribir código backend limpio, mantenible y orientado a producto."
+      title="Backend Engineer formado en producción, no en tutoriales."
+      description="Ingeniero Informático por la Universidad de León con cerca de 4 años en el sector. Especializado en backend con Python y FastAPI, diseño de APIs REST, bases de datos relacionales y arquitectura de software, con foco en buenas prácticas, despliegue en AWS e integración de IA en sistemas reales."
     >
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {pillars.map((p, i) => (

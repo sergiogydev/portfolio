@@ -7,16 +7,15 @@ export const experiences = [
     location: "León · Presencial",
     current: true,
     summary:
-      "Desarrollo backend en proyectos empresariales: APIs REST, lógica de negocio y gestión de bases de datos en producción.",
+      "Desarrollo backend en proyectos empresariales: APIs REST con Python, lógica de negocio y gestión de bases de datos en producción.",
     bullets: [
-      "Backend con Laravel y NestJS: APIs REST y modelado de lógica de negocio.",
-      "Gestión de bases de datos relacionales con MariaDB y PostgreSQL.",
-      "Frontend con React para aplicaciones web empresariales.",
-      "Apps multiplataforma con Flutter y Kotlin.",
-      "Configuración y mantenimiento de servidores en producción.",
-      "Ciclo completo: análisis, implementación, pruebas y despliegue.",
+      "Desarrollo backend de APIs REST con Python, Laravel y NestJS.",
+      "Diseño y mantenimiento de la lógica de negocio del backend.",
+      "Gestión de bases de datos PostgreSQL y MariaDB en producción.",
+      "Administración y despliegue de sistemas en servidores.",
+      "Frontend con React y apps multiplataforma cuando el proyecto lo requiere.",
     ],
-    stack: ["Python", "Laravel", "NestJS", "PostgreSQL", "MariaDB", "React", "Flutter", "Kotlin"],
+    stack: ["Python", "Laravel", "NestJS", "PostgreSQL", "MariaDB", "React"],
   },
   {
     id: "electro-garpa",
@@ -41,7 +40,7 @@ export const experiences = [
     summary:
       "Desarrollo de aplicaciones web en una multinacional, integrado en equipo profesional con metodologías reales.",
     bullets: [
-      "Apps web desarrladas en Next.js, foco en rendimiento y experiencia de usuario.",
+      "Apps web desarrolladas en Next.js dentro de un equipo ágil, con foco en rendimiento y experiencia de usuario.",
       "Integración en un equipo profesional y flujos de trabajo empresariales.",
     ],
     stack: ["Next.js", "React", "JavaScript"],

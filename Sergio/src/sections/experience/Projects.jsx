@@ -10,27 +10,50 @@ export default function Projects() {
       id="projects"
       eyebrow="04 · Proyectos destacados"
       title="Trabajo real, no demos."
-      description="Selección de iniciativas profesionales en las que he participado como backend o full stack. Cada proyecto incluye contexto, stack y aporte concreto."
+      description="Desde TutorTrack, mi plataforma SaaS construida de cero con FastAPI, Stripe e IA, hasta iniciativas profesionales como backend y full stack. Cada proyecto incluye contexto, stack y aporte concreto."
     >
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {projects.map((p, i) => (
-          <Reveal key={p.id} delay={i}>
-            <article className="relative h-full overflow-hidden border rounded-2xl border-zinc-200 dark:border-white/10 bg-white/60 dark:bg-zinc-900/40 backdrop-blur-md hover:border-brand-500/40 transition-colors group">
+          <Reveal
+            key={p.id}
+            delay={i}
+            className={p.featured ? "lg:col-span-2" : ""}
+          >
+            <article
+              className={`relative h-full overflow-hidden border rounded-2xl bg-white/60 dark:bg-zinc-900/40 backdrop-blur-md transition-colors group ${
+                p.featured
+                  ? "border-brand-500/40 hover:border-brand-500/60 ring-1 ring-brand-500/10"
+                  : "border-zinc-200 dark:border-white/10 hover:border-brand-500/40"
+              }`}
+            >
               <div
                 className={`absolute -top-24 -right-24 w-72 h-72 rounded-full blur-3xl bg-gradient-to-br ${p.accent} opacity-70 group-hover:opacity-100 transition-opacity`}
                 aria-hidden
               />
               <div className="relative p-6 sm:p-7">
                 <div className="flex items-center justify-between mb-5 font-mono text-[11px] uppercase tracking-wider text-zinc-500 dark:text-zinc-500">
-                  <span className="text-brand-600 dark:text-brand-400">
+                  <span className="inline-flex items-center gap-2 text-brand-600 dark:text-brand-400">
+                    {p.featured && (
+                      <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-brand-500/10 border border-brand-500/30">
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
+                        Destacado
+                      </span>
+                    )}
                     {p.type}
                   </span>
                   <span>{p.period}</span>
                 </div>
 
-                <h3 className="mb-1 text-xl font-semibold sm:text-2xl text-zinc-900 dark:text-zinc-100">
-                  {p.title}
-                </h3>
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
+                  <h3 className="text-xl font-semibold sm:text-2xl text-zinc-900 dark:text-zinc-100">
+                    {p.title}
+                  </h3>
+                  {p.subtitle && (
+                    <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                      {p.subtitle}
+                    </span>
+                  )}
+                </div>
                 <p className="mb-5 text-sm text-zinc-500 dark:text-zinc-400">
                   {p.role}
                 </p>
@@ -39,7 +62,11 @@ export default function Projects() {
                   {p.description}
                 </p>
 
-                <ul className="mb-5 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400">
+                <ul
+                  className={`mb-5 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400 ${
+                    p.featured ? "sm:grid sm:grid-cols-2 sm:gap-x-6 sm:space-y-0 sm:gap-y-1.5" : ""
+                  }`}
+                >
                   {p.highlights.map((h) => (
                     <li key={h} className="relative pl-5">
                       <span

@@ -59,8 +59,8 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-2xl mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-xl"
         >
-          Soy <span className="font-medium text-zinc-900 dark:text-zinc-100">Sergio García Yugueros</span>, Backend Developer con +4 años en sistemas reales.
-          Especializado en <span className="text-zinc-900 dark:text-zinc-100">FastAPI</span>, <span className="text-zinc-900 dark:text-zinc-100">PostgreSQL</span> y arquitectura escalable, con capacidad full stack para construir el frontend cuando hace falta.
+          Soy <span className="font-medium text-zinc-900 dark:text-zinc-100">Sergio García Yugueros</span>, Backend Engineer con cerca de 4 años en sistemas reales.
+          Especializado en <span className="text-zinc-900 dark:text-zinc-100">FastAPI</span>, <span className="text-zinc-900 dark:text-zinc-100">PostgreSQL</span> y arquitectura escalable, con despliegue en <span className="text-zinc-900 dark:text-zinc-100">AWS</span> e integración de IA, y capacidad full stack cuando hace falta.
         </motion.p>
 
         {/* CTAs */}
@@ -182,19 +182,25 @@ function TerminalCard() {
         </div>
         <pre className="px-5 py-5 font-mono text-[13px] leading-relaxed text-zinc-700 dark:text-zinc-300">
 {`> whoami
-sergio · backend developer
+sergio · backend engineer
 
 > cat stack.json`}
           <span className="text-zinc-900 dark:text-zinc-100">
 {`
 {
-  "primary":   ["Python", "FastAPI"],
-  "data":      ["PostgreSQL", "MariaDB"],
-  "secondary": ["Laravel", "NestJS", "Node.js"],
-  "frontend":  ["React", "Next.js"],
-  "devops":    ["Docker", "Git"]
+  "core":     ["Python", "FastAPI", "SQLAlchemy"],
+  "data":     ["PostgreSQL", "Alembic"],
+  "cloud":    ["Docker", "AWS", "GitHub Actions"],
+  "payments": ["Stripe"],
+  "ai":       ["OpenAI", "Claude"],
+  "testing":  ["pytest"]
 }`}
           </span>
+{`
+
+> cat current_project.txt
+`}
+          <span className="text-zinc-900 dark:text-zinc-100">TutorTrack — SaaS con FastAPI + Stripe + IA en AWS</span>
 {`
 
 > status `}

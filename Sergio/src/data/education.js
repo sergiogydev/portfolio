@@ -11,6 +11,13 @@ export const education = [
 
 export const certifications = [
   {
+    id: "aws-cloud-practitioner",
+    title: "AWS Cloud Practitioner",
+    org: "Amazon Web Services",
+    year: "En progreso · 2026",
+    category: "Cloud",
+  },
+  {
     id: "cisco-cyberops",
     title: "Cisco CyberOps Associate",
     org: "Cisco",

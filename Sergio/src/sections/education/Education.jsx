@@ -9,7 +9,7 @@ export default function Education() {
       id="education"
       eyebrow="05 · Formación"
       title="Formación universitaria + aprendizaje continuo."
-      description="Grado en Ingeniería Informática complementado con certificaciones técnicas en Python, Machine Learning y ciberseguridad."
+      description="Grado en Ingeniería Informática complementado con certificaciones en cloud (AWS), ciberseguridad, Python y Machine Learning."
     >
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* Education */}
