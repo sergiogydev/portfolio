@@ -4,8 +4,8 @@ export const profile = {
   tagline: "APIs REST, datos y arquitectura backend escalable.",
   location: "León, España",
   email: "sgarciayugueros@gmail.com",
-  github: "https://github.com/reactstackdev",
-  githubHandle: "@reactstackdev",
+  github: "https://github.com/sergiogydev",
+  githubHandle: "@sergiogydev",
   linkedin:
     "https://linkedin.com/in/sergio-garc%C3%ADa-yugueros-754451250",
   cvUrl: "/CV_Sergio.pdf",
