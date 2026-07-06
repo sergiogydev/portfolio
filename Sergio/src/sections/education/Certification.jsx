@@ -56,7 +56,7 @@ export default function Contact() {
           delay={1}
           className="max-w-3xl mx-auto mt-16 font-serif text-4xl leading-tight text-center text-ink sm:text-5xl lg:text-6xl"
         >
-          ¿Tienes un proyecto <em className="italic text-accent">backend</em> en mente?
+          ¿Tienes un <em className="italic text-accent">proyecto</em> en mente?
         </Reveal>
 
         <Reveal
