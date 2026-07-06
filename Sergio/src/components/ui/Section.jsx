@@ -1,38 +1,44 @@
 import Reveal from "./Reveal";
+import { Rule, Folio } from "./Rule";
 
 export default function Section({
   id,
+  index,
   eyebrow,
   title,
   description,
   children,
   className = "",
-  align = "left",
 }) {
-  const alignClasses =
-    align === "center" ? "items-center text-center mx-auto" : "items-start";
-
   return (
     <section
       id={id}
-      className={`relative scroll-mt-24 px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-28 ${className}`}
+      className={`relative scroll-mt-24 px-4 sm:px-6 lg:px-10 py-20 sm:py-28 lg:py-32 ${className}`}
     >
-      <div className="max-w-6xl mx-auto">
-        {(eyebrow || title || description) && (
-          <div className={`flex flex-col gap-3 mb-12 sm:mb-16 ${alignClasses}`}>
-            {eyebrow && (
+      {index && (
+        <Folio className="top-2 right-2 text-[7rem] sm:right-6 sm:text-[10rem] lg:right-10 lg:text-[13rem]">
+          {index}
+        </Folio>
+      )}
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <Rule />
+        <div className="grid grid-cols-1 gap-6 pt-7 lg:grid-cols-12 lg:gap-10">
+          {eyebrow && (
+            <div className="lg:col-span-3">
               <Reveal>
-                <div className="flex items-center gap-2 font-mono text-xs tracking-[0.2em] uppercase text-brand-500">
-                  <span className="inline-block w-6 h-px bg-brand-500" />
+                <div className="flex items-center gap-2 font-mono text-xs tracking-[0.25em] uppercase text-ink-muted">
+                  {index && <span className="text-accent">{index}</span>}
                   {eyebrow}
                 </div>
               </Reveal>
-            )}
+            </div>
+          )}
+          <div className={eyebrow ? "lg:col-span-9" : "lg:col-span-12"}>
             {title && (
               <Reveal
                 as="h2"
                 delay={1}
-                className="max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl text-zinc-900 dark:text-zinc-50"
+                className="max-w-2xl font-serif text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-ink"
               >
                 {title}
               </Reveal>
@@ -41,14 +47,14 @@ export default function Section({
               <Reveal
                 as="p"
                 delay={2}
-                className="max-w-2xl text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed"
+                className="max-w-xl mt-5 text-base leading-relaxed sm:text-lg text-ink-muted"
               >
                 {description}
               </Reveal>
             )}
           </div>
-        )}
-        {children}
+        </div>
+        {children && <div className="mt-14 sm:mt-16 lg:mt-20">{children}</div>}
       </div>
     </section>
   );

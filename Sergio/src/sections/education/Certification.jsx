@@ -1,12 +1,13 @@
 import {
   FiArrowUpRight,
   FiGithub,
+  FiGlobe,
   FiLinkedin,
   FiMail,
   FiMapPin,
 } from "react-icons/fi";
-import Section from "../../components/ui/Section";
 import Reveal from "../../components/ui/Reveal";
+import { Rule, Folio } from "../../components/ui/Rule";
 import { profile } from "../../data/profile";
 
 const channels = [
@@ -15,7 +16,6 @@ const channels = [
     label: "Email",
     value: profile.email,
     href: `mailto:${profile.email}`,
-    primary: true,
   },
   {
     icon: FiLinkedin,
@@ -29,86 +29,97 @@ const channels = [
     value: profile.githubHandle,
     href: profile.github,
   },
+  {
+    icon: FiGlobe,
+    label: "Web",
+    value: profile.website.replace("https://", ""),
+    href: profile.website,
+  },
 ];
 
 export default function Contact() {
   return (
-    <Section id="contact" className="pb-32">
-      <div className="relative overflow-hidden border rounded-3xl border-zinc-200 dark:border-white/10 bg-gradient-to-br from-zinc-50 via-zinc-50 to-brand-500/10 dark:from-zinc-900/60 dark:via-zinc-900/40 dark:to-brand-500/10">
-        <div
-          className="absolute inset-0 bg-grid opacity-40"
-          aria-hidden
-        />
-        <div
-          className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-3xl bg-brand-500/10"
-          aria-hidden
-        />
+    <section id="contact" className="relative px-4 pt-20 pb-24 sm:px-6 lg:px-10 sm:pb-32">
+      <Folio className="text-[9rem] leading-none -top-2 left-1/2 -translate-x-1/2 sm:text-[14rem] lg:text-[19rem]">
+        06
+      </Folio>
 
-        <div className="relative grid grid-cols-1 gap-10 p-8 sm:p-12 lg:p-16 lg:grid-cols-2">
-          {/* Left */}
-          <Reveal>
-            <div className="font-mono text-xs tracking-[0.2em] uppercase text-brand-600 dark:text-brand-400">
-              06 · Contacto
-            </div>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl lg:text-5xl">
-              ¿Tienes un proyecto backend en mente?
-            </h2>
-            <p className="mt-5 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
-              Estoy abierto a oportunidades como Backend Engineer (Python, FastAPI, APIs REST, PostgreSQL, AWS) y a posiciones full stack. La forma más rápida de contactarme es por email.
-            </p>
-
-            <div className="flex flex-wrap gap-3 mt-8">
-              <a
-                href={`mailto:${profile.email}`}
-                className="inline-flex items-center gap-2 px-5 py-3 text-sm font-medium rounded-full bg-brand-500 text-zinc-950 hover:bg-brand-400 transition-colors shadow-lg shadow-brand-500/20"
-              >
-                Escríbeme <FiArrowUpRight className="w-4 h-4" />
-              </a>
-              <a
-                href={profile.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 text-sm font-medium rounded-full border border-zinc-300 dark:border-white/15 bg-white/70 dark:bg-zinc-900/50 backdrop-blur-md text-zinc-800 dark:text-zinc-100 hover:border-brand-500/50 transition-colors"
-              >
-                <FiLinkedin className="w-4 h-4" /> LinkedIn
-              </a>
-            </div>
-
-            <div className="flex items-center gap-2 mt-6 font-mono text-xs text-zinc-500 dark:text-zinc-500">
-              <FiMapPin className="w-3.5 h-3.5" /> {profile.location}
-            </div>
-          </Reveal>
-
-          {/* Right */}
-          <Reveal delay={1}>
-            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {channels.map((c) => (
-                <li key={c.label}>
-                  <a
-                    href={c.href}
-                    target={c.href.startsWith("http") ? "_blank" : undefined}
-                    rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="flex flex-col h-full p-4 border rounded-xl border-zinc-200 dark:border-white/10 bg-white/70 dark:bg-zinc-950/40 backdrop-blur-md hover:border-brand-500/40 hover:bg-white dark:hover:bg-zinc-900/60 transition-colors group"
-                  >
-                    <span className="flex items-center justify-between">
-                      <span className="inline-flex items-center justify-center w-9 h-9 text-brand-600 dark:text-brand-400 bg-brand-500/10 rounded-lg">
-                        <c.icon className="w-4 h-4" />
-                      </span>
-                      <FiArrowUpRight className="w-4 h-4 text-zinc-400 dark:text-zinc-600 group-hover:text-brand-500 transition-colors" />
-                    </span>
-                    <span className="mt-4 font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-500">
-                      {c.label}
-                    </span>
-                    <span className="mt-1 text-sm font-medium break-all text-zinc-900 dark:text-zinc-100">
-                      {c.value}
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <Rule />
+        <div className="py-3 font-mono text-xs uppercase tracking-[0.2em] text-ink-muted text-center">
+          06 · Contacto
         </div>
+        <Rule />
+
+        <Reveal
+          as="h2"
+          delay={1}
+          className="max-w-3xl mx-auto mt-16 font-serif text-4xl leading-tight text-center text-ink sm:text-5xl lg:text-6xl"
+        >
+          ¿Tienes un proyecto <em className="italic text-accent">backend</em> en mente?
+        </Reveal>
+
+        <Reveal
+          as="p"
+          delay={2}
+          className="max-w-xl mx-auto mt-6 text-base leading-relaxed text-center sm:text-lg text-ink-muted"
+        >
+          Estoy abierto a oportunidades como Backend Engineer (Python, FastAPI, APIs REST,
+          PostgreSQL, AWS) y a posiciones full stack. La forma más rápida de contactarme es por
+          email.
+        </Reveal>
+
+        <Reveal
+          delay={3}
+          className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mt-10"
+        >
+          <a
+            href={`mailto:${profile.email}`}
+            className="inline-flex items-center gap-2 px-6 py-3 text-sm font-mono uppercase tracking-[0.1em] bg-ink text-paper hover:bg-accent transition-colors"
+          >
+            Escríbeme <FiArrowUpRight className="w-4 h-4" />
+          </a>
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 pb-0.5 text-sm border-b border-ink/30 text-ink hover:border-accent hover:text-accent transition-colors"
+          >
+            <FiLinkedin className="w-4 h-4" /> LinkedIn
+          </a>
+          <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] text-ink-muted">
+            <FiMapPin className="w-3.5 h-3.5" /> {profile.location}
+          </span>
+        </Reveal>
+
+        <Reveal delay={4} className="mt-24">
+          <Rule />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            {channels.map((c, i) => (
+              <a
+                key={c.label}
+                href={c.href}
+                target={c.href.startsWith("http") ? "_blank" : undefined}
+                rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className={`group py-7 sm:px-8 border-ink/10 ${
+                  i % 2 === 1 ? "sm:border-l" : ""
+                } ${i > 0 ? "lg:border-l" : ""}`}
+              >
+                <span className="flex items-center justify-between font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">
+                  <span className="inline-flex items-center gap-2">
+                    <c.icon className="w-4 h-4" /> {c.label}
+                  </span>
+                  <FiArrowUpRight className="w-4 h-4 group-hover:text-accent transition-colors" />
+                </span>
+                <span className="block mt-3 text-base break-all text-ink group-hover:text-accent transition-colors">
+                  {c.value}
+                </span>
+              </a>
+            ))}
+          </div>
+          <Rule />
+        </Reveal>
       </div>
-    </Section>
+    </section>
   );
 }
