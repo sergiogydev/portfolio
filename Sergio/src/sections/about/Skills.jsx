@@ -10,7 +10,7 @@ export default function Skills() {
       index="02"
       eyebrow="Stack técnico"
       title="Las herramientas con las que construyo software."
-      description="Mi stack está priorizado: backend en Python y FastAPI como núcleo, capacidades full stack alrededor y herramientas de DevOps e IA para mover proyectos rápido sin perder calidad."
+      description="Mi stack está priorizado: backend en Java/Spring Boot y Python/FastAPI como núcleo, capacidades full stack alrededor y herramientas de DevOps e IA para mover proyectos rápido sin perder calidad."
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-12">
         {stackGroups.map((group, i) => {

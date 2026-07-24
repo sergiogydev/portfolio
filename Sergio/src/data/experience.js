@@ -11,11 +11,11 @@ export const experiences = [
     bullets: [
       "Bot de gestión de incidencias vía WhatsApp integrado con GPT-4o mini para clasificación e interpretación de mensajes, y PostGIS para geolocalización y consultas espaciales.",
       "Diseño de la arquitectura multi-repositorio del sistema (backend, integraciones y automatizaciones) y documentación técnica del esquema de base de datos y los mecanismos de sincronización.",
-      "Desarrollo de APIs REST y servicios backend con Python (FastAPI), Laravel y NestJS para clientes del sector público.",
+      "Desarrollo de APIs REST y servicios backend con Spring Boot (Java), Python (FastAPI), Laravel, Node.js y NestJS para clientes del sector público.",
       "Resolución de incidencias en producción: configuración de zona horaria en MariaDB, reinicio de secuencias en PostgreSQL y fallos de conexión TypeORM por caracteres especiales en credenciales.",
       "Gestión y optimización de bases de datos PostgreSQL y MariaDB, y despliegue de aplicaciones en servidores Linux.",
     ],
-    stack: ["Python", "FastAPI", "Laravel", "NestJS", "PostgreSQL", "MariaDB", "PostGIS", "GPT-4o mini"],
+    stack: ["Spring Boot", "Java", "Python", "FastAPI", "Laravel", "Node.js", "NestJS", "PostgreSQL", "MariaDB", "PostGIS", "GPT-4o mini"],
   },
   {
     id: "electro-garpa",

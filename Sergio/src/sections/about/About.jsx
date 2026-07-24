@@ -5,24 +5,24 @@ import { Rule } from "../../components/ui/Rule";
 const pillars = [
   {
     numeral: "I",
-    title: "Python & FastAPI como núcleo",
-    body: "Especializado en desarrollo backend con Python y FastAPI: diseño de APIs REST, arquitectura limpia por capas (services, repositories, schemas) y bases de datos tanto relacionales (PostgreSQL, MariaDB) como no relacionales (MongoDB).",
+    title: "Java, Spring Boot y Python como núcleo",
+    body: "Especializado en desarrollo backend con Java/Spring Boot y Python/FastAPI: diseño de APIs REST, arquitectura limpia por capas (services, repositories, schemas) y bases de datos tanto relacionales (PostgreSQL, MariaDB, SQL Server) como no relacionales (MongoDB).",
   },
   {
     numeral: "II",
     title: "Aplicaciones impulsadas por IA",
-    body: "Enfoque actual: integración de LLMs (OpenAI, Anthropic) en sistemas backend reales, automatización de procesos inteligentes y asistentes con RAG, en sistemas construidos para producción, no para demos.",
+    body: "Enfoque actual: integración de LLMs (OpenAI) en sistemas backend reales, automatización de procesos inteligentes y asistentes con RAG, en sistemas construidos para producción, no para demos.",
   },
   {
     numeral: "III",
-    title: "Buenas prácticas & Cloud",
-    body: "Testing con pytest, contenedores con Docker, CI/CD con GitHub Actions y despliegue en AWS (EC2/RDS). Actualmente preparando la certificación AWS Cloud Practitioner.",
+    title: "Buenas prácticas de ingeniería",
+    body: "Arquitectura limpia, principios SOLID y DDD, testing con pytest, contenedores con Docker y pipelines de CI/CD con GitHub Actions.",
   },
 ];
 
 export default function About() {
   return (
-    <Section id="about" index="01" eyebrow="Sobre mí" title="Backend Engineer formado en producción, no en tutoriales.">
+    <Section id="about" index="01" eyebrow="Sobre mí" title="Backend Developer formado en producción, no en tutoriales.">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
         <div className="lg:col-span-3">
           <Reveal className="font-mono text-xs uppercase tracking-[0.15em] text-ink-muted leading-loose">
@@ -40,11 +40,11 @@ export default function About() {
             className="max-w-2xl text-lg leading-relaxed drop-cap text-ink-muted sm:text-xl"
           >
             Ingeniero Informático por la Universidad de León con 4 años de experiencia en el
-            sector. Especializado en backend con Python y FastAPI, diseño de APIs REST,
-            arquitectura de software y bases de datos relacionales y no relacionales.
-            Actualmente centrado en aplicaciones impulsadas por IA: integración de LLMs, automatización
-            de procesos inteligentes y sistemas backend escalables en AWS, con buenas prácticas
-            de ingeniería como Docker, testing y CI/CD.
+            sector. Especializado en backend con Java y Spring Boot, además de Python y FastAPI,
+            diseño de APIs REST, arquitectura de software y bases de datos relacionales y no
+            relacionales. Actualmente centrado en aplicaciones impulsadas por IA: integración de
+            LLMs, automatización de procesos inteligentes y sistemas backend escalables, con
+            buenas prácticas de ingeniería como Docker, testing y CI/CD.
           </Reveal>
 
           <div className="mt-14">

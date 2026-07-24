@@ -18,15 +18,15 @@ export const certifications = [
     category: "Ciberseguridad",
   },
   {
-    id: "aws-cloud-practitioner",
-    title: "AWS Cloud Practitioner",
-    org: "Amazon Web Services",
-    year: "En preparación · 2026",
-    category: "Cloud",
+    id: "spring-boot-udemy",
+    title: "Spring Boot y Spring Framework desde cero a experto",
+    org: "Udemy",
+    year: "2026",
+    category: "Backend",
   },
 ];
 
 export const languages = [
   { name: "Español", level: "Nativo", value: 100 },
-  { name: "Inglés", level: "B1", value: 50 },
+  { name: "Inglés", level: "B1", value: 40 },
 ];

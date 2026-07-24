@@ -40,8 +40,8 @@ export default function Hero() {
               delay={1}
               className="max-w-2xl font-serif text-4xl font-medium leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]"
             >
-              Construyo backends escalables en{" "}
-              <em className="italic text-accent">Python</em>,
+              Construyo backends en{" "}
+              <em className="italic text-accent">Java (Spring Boot), Laravel, Python y Node.js</em>,
               <br />
               impulsados por IA.
             </Reveal>
@@ -52,12 +52,12 @@ export default function Hero() {
               className="max-w-lg mt-7 text-base leading-relaxed sm:text-lg text-ink-muted"
             >
               Soy <span className="font-medium text-ink">Sergio García Yugueros</span>, Backend
-              Engineer con 4 años de experiencia en el sector tecnológico. Especializado en{" "}
-              <span className="text-ink">FastAPI</span>, APIs REST y bases de datos relacionales
-              y no relacionales. Actualmente centrado en aplicaciones impulsadas por IA:
-              integración de <span className="text-ink">LLMs (OpenAI, Anthropic)</span>,
-              automatización inteligente y despliegue en <span className="text-ink">AWS</span>{" "}
-              con Docker, testing y CI/CD.
+              Developer con 4 años de experiencia en el sector tecnológico. Especializado en{" "}
+              <span className="text-ink">Java, Spring Boot</span> y Python (FastAPI), diseño de
+              APIs REST y bases de datos relacionales y no relacionales. Actualmente centrado en
+              aplicaciones impulsadas por IA: integración de{" "}
+              <span className="text-ink">LLMs (OpenAI)</span>, automatización inteligente y
+              construcción de sistemas backend escalables con Docker, testing y CI/CD.
             </Reveal>
 
             <Reveal delay={3} className="flex flex-wrap items-center gap-x-8 gap-y-4 mt-9">

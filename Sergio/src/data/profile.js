@@ -1,7 +1,7 @@
 export const profile = {
   name: "Sergio García Yugueros",
-  role: "Backend Engineer",
-  tagline: "Python · FastAPI · IA — Backends escalables con LLMs y AWS.",
+  role: "Backend Developer",
+  tagline: "Java · Spring Boot · Python · IA — APIs REST y backends escalables.",
   location: "León, España",
   email: "sgarciayugueros@gmail.com",
   github: "https://github.com/sergiogydev",

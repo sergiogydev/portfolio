@@ -1,4 +1,7 @@
 import {
+  SiOpenjdk,
+  SiSpringboot,
+  SiKotlin,
   SiPython,
   SiFastapi,
   SiSqlalchemy,
@@ -16,7 +19,6 @@ import {
   SiDocker,
   SiGithubactions,
   SiStripe,
-  SiAnthropic,
   SiPytest,
   SiJsonwebtokens,
 } from "react-icons/si";
@@ -41,11 +43,14 @@ export const stackGroups = [
     id: "backend",
     title: "Backend (núcleo)",
     description:
-      "Mi enfoque principal: APIs REST limpias y mantenibles con FastAPI, arquitectura por capas y código listo para producción.",
+      "Mi enfoque principal: APIs REST limpias y mantenibles con Java/Spring Boot y FastAPI, arquitectura por capas y código listo para producción.",
     icon: FiServer,
     items: [
+      { name: "Java", icon: SiOpenjdk, level: "Principal" },
+      { name: "Spring Boot", icon: SiSpringboot, level: "Principal" },
       { name: "Python", icon: SiPython, level: "Principal" },
       { name: "FastAPI", icon: SiFastapi, level: "Principal" },
+      { name: "Kotlin", icon: SiKotlin, level: "Producción" },
       { name: "SQLAlchemy", icon: SiSqlalchemy, level: "Producción" },
       { name: "Pydantic", icon: SiPydantic, level: "Producción" },
       { name: "Alembic", icon: FiLayers, level: "Migraciones" },
@@ -63,6 +68,7 @@ export const stackGroups = [
       { name: "PostgreSQL", icon: SiPostgresql, level: "Principal" },
       { name: "MariaDB", icon: SiMariadb, level: "Producción" },
       { name: "MongoDB", icon: SiMongodb, level: "Producción" },
+      { name: "SQL Server", icon: FiDatabase, level: "Producción" },
     ],
   },
   {
@@ -82,13 +88,12 @@ export const stackGroups = [
   },
   {
     id: "devops",
-    title: "DevOps & Cloud",
+    title: "DevOps",
     description:
-      "Empaquetado y despliegue en la nube. Actualmente preparando la certificación AWS Cloud Practitioner.",
+      "Empaquetado, automatización y despliegue de aplicaciones listas para producción.",
     icon: FiCloud,
     items: [
       { name: "Docker", icon: SiDocker, level: "Producción" },
-      { name: "AWS", icon: FiCloud, level: "En progreso" },
       { name: "GitHub Actions", icon: SiGithubactions, level: "CI/CD" },
     ],
   },
@@ -96,12 +101,11 @@ export const stackGroups = [
     id: "ai-payments",
     title: "IA Generativa & Pagos",
     description:
-      "Integración de LLMs (OpenAI / Anthropic) en flujos backend reales, con RAG y agentes, más cobros con Stripe.",
+      "Integración de LLMs (OpenAI) en flujos backend reales, con RAG y agentes, más cobros con Stripe.",
     icon: FiZap,
     items: [
       { name: "LLM Integration", icon: FiZap, level: "Producción" },
       { name: "OpenAI API", icon: FiCpu, level: "LLM" },
-      { name: "Anthropic / Claude", icon: SiAnthropic, level: "LLM" },
       { name: "RAG", icon: FiActivity },
       { name: "AI Agents", icon: FiTarget },
       { name: "Stripe", icon: SiStripe, level: "Pagos & webhooks" },
@@ -126,18 +130,19 @@ export const stackGroups = [
 ];
 
 export const marqueeStack = [
+  "Java",
+  "Spring Boot",
   "Python",
   "FastAPI",
   "SQLAlchemy",
   "PostgreSQL",
   "MongoDB",
+  "SQL Server",
   "Stripe",
   "Docker",
-  "AWS",
   "pytest",
   "Alembic",
   "OpenAI",
-  "Anthropic",
   "GitHub Actions",
   "Node.js",
   "React",

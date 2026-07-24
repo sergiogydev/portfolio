@@ -10,7 +10,7 @@ export default function Education() {
       index="05"
       eyebrow="Formación"
       title="Formación universitaria + aprendizaje continuo."
-      description="Grado en Ingeniería Informática complementado con certificaciones en cloud (AWS), ciberseguridad, Python y Machine Learning."
+      description="Grado en Ingeniería Informática complementado con certificaciones en ciberseguridad y desarrollo backend con Spring Boot."
     >
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
         {/* Education + languages */}

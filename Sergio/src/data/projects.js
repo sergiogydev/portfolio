@@ -7,13 +7,13 @@ export const projects = [
     period: "2026",
     featured: true,
     description:
-      "Backend construido de cero con FastAPI siguiendo Clean Architecture (services, repositories, schemas y migraciones con Alembic). Implementa lógica de negocio real, cobros con Stripe e IA generativa, desplegado en AWS con CI/CD.",
+      "Backend construido de cero con FastAPI siguiendo Clean Architecture (services, repositories, schemas y migraciones con Alembic). Implementa lógica de negocio real, cobros con Stripe e IA generativa, con pipelines de CI/CD.",
     highlights: [
       "Backend en FastAPI siguiendo Clean Architecture: services, repositories, schemas y Alembic.",
       "Lógica de negocio real: gestión de clientes, bonos de sesiones, consumo y renovación automática.",
       "Integración completa con Stripe: pagos únicos, suscripciones y procesamiento de webhooks.",
       "LLMs (OpenAI y Anthropic) para generación automática de informes, resúmenes de progreso y asistencia contextual.",
-      "PostgreSQL, Docker y pytest; despliegue en AWS (EC2 + RDS) con CI/CD vía GitHub Actions.",
+      "PostgreSQL, Docker y pytest; pipelines CI/CD con GitHub Actions.",
     ],
     stack: [
       "Python",
@@ -22,7 +22,6 @@ export const projects = [
       "Stripe",
       "OpenAI / Anthropic",
       "Docker",
-      "AWS",
       "pytest",
       "GitHub Actions",
     ],

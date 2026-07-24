@@ -64,9 +64,9 @@ export default function Contact() {
           delay={2}
           className="max-w-xl mx-auto mt-6 text-base leading-relaxed text-center sm:text-lg text-ink-muted"
         >
-          Estoy abierto a oportunidades como Backend Engineer (Python, FastAPI, APIs REST,
-          PostgreSQL, AWS) y a posiciones full stack. La forma más rápida de contactarme es por
-          email.
+          Estoy abierto a oportunidades como Backend Developer (Java, Spring Boot, Python,
+          FastAPI, APIs REST) y a posiciones full stack. La forma más rápida de contactarme es
+          por email.
         </Reveal>
 
         <Reveal
