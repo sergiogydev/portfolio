@@ -14,7 +14,7 @@ export default function Contact() {
       <div className="eyebrow">¿Trabajamos juntos?</div>
       <motion.a
         href={`mailto:${profile.email}`}
-        className="block mt-4 font-display text-[clamp(3.5rem,15vw,14rem)] leading-[0.92] text-fg"
+        className="block mt-4 font-display text-[clamp(2.8rem,8vw,8rem)] leading-[0.92] text-fg"
         whileHover={{ scale: 1.03, rotate: -1.5 }}
         transition={{ type: "spring", stiffness: 200, damping: 14 }}
       >
@@ -22,7 +22,7 @@ export default function Contact() {
       </motion.a>
       <a
         href={`mailto:${profile.email}`}
-        className="inline-block mt-4 text-sm tracking-[0.2em] uppercase text-muted hover:text-fg transition-colors"
+        className="inline-block mt-3 text-xs tracking-[0.2em] uppercase text-muted hover:text-fg transition-colors"
       >
         {profile.email}
       </a>
@@ -34,7 +34,7 @@ export default function Contact() {
               href={l.href}
               target={l.href.startsWith("mailto") ? undefined : "_blank"}
               rel="noopener noreferrer"
-              className="text-xl tracking-wide transition-colors font-display text-fg hover:text-accent"
+              className="text-lg tracking-wide transition-colors font-display text-fg hover:text-accent"
             >
               {l.label}
             </a>

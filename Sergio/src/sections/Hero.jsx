@@ -50,7 +50,7 @@ function HeroCard({ card, index, mx, my, scrollY, onOpen }) {
   return (
     <motion.div
       style={{ x, y: py }}
-      className="relative w-[27vw] sm:w-[21vw] max-w-[270px] -ml-[5vw] sm:-ml-[2.5vw] first:ml-0"
+      className="relative w-[27vw] sm:w-[16vw] max-w-[230px] -ml-[5vw] sm:-ml-[2.5vw] first:ml-0"
     >
       <motion.div style={{ y: sy }}>
         {card.open ? (
@@ -107,7 +107,7 @@ export default function Hero({ onOpen }) {
       <h1
         ref={nameRef}
         aria-label={profile.name}
-        className="font-display text-fg text-center leading-[0.92] text-[clamp(2.6rem,9.6vw,10rem)] flex flex-wrap justify-center overflow-hidden pt-[0.14em] pb-[0.04em] mt-1"
+        className="font-display text-fg text-center leading-[0.92] text-[clamp(1.8rem,4.4vw,4.8rem)] flex flex-wrap justify-center overflow-hidden pt-[0.14em] pb-[0.04em] mt-1"
       >
         {words.map((word, wi) => (
           <span key={wi} aria-hidden className="inline-block whitespace-nowrap mx-[0.12em]">
@@ -130,7 +130,7 @@ export default function Hero({ onOpen }) {
         ))}
       </h1>
 
-      <div className="relative z-10 flex justify-center mt-8 sm:mt-10 pb-24 sm:pb-32">
+      <div className="relative z-10 flex justify-center mt-8 sm:mt-10 pb-24 sm:pb-28">
         {cards.map((c, i) => (
           <HeroCard
             key={c.id}
@@ -144,15 +144,15 @@ export default function Hero({ onOpen }) {
         ))}
       </div>
 
-      <div className="relative z-0 max-w-[1400px] mx-auto -mt-6 sm:-mt-12">
+      <div className="relative z-0 max-w-[1000px] mx-auto mt-4 sm:mt-6">
         <ScrollWords
           text="BACKEND DEVELOPER, JAVA & SPRING BOOT"
-          className="font-display text-[clamp(3rem,12.5vw,13rem)] leading-[0.92] text-center"
+          className="font-display text-[clamp(2rem,5.6vw,6rem)] leading-[0.95] text-center"
         />
       </div>
 
-      <div className="mt-16 text-center pb-28">
-        <div className="text-2xl tracking-wide font-display text-fg">He trabajado en</div>
+      <div className="mt-16 text-center pb-20">
+        <div className="text-lg tracking-wide font-display text-fg">He trabajado en</div>
         <ul className="mt-2 flex flex-wrap justify-center gap-x-6 gap-y-1 text-[11px] tracking-[0.22em] uppercase text-faint">
           {worksWith.map((w) => (
             <li key={w}>{w}</li>

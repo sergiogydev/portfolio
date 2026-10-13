@@ -20,7 +20,7 @@ export default function Reveal({ as = "div", delay = 0, y = 30, className = "", 
 export function SectionTitle({ children, className = "" }) {
   return (
     <h2
-      className={`font-display text-[clamp(3rem,11vw,9rem)] leading-[0.95] text-fg overflow-hidden ${className}`}
+      className={`font-display text-[clamp(2.4rem,5.5vw,5rem)] leading-[0.95] text-fg overflow-hidden ${className}`}
     >
       <motion.span
         className="inline-block"

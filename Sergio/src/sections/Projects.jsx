@@ -6,10 +6,10 @@ import Reveal, { SectionTitle } from "../components/Reveal";
 
 export default function Projects({ onOpen }) {
   return (
-    <section id="proyectos" className="px-4 py-24 sm:px-8 scroll-mt-10">
+    <section id="proyectos" className="px-4 py-20 sm:px-8 scroll-mt-10">
       <div className="max-w-[1400px] mx-auto">
         <SectionTitle>Mis apps</SectionTitle>
-        <Reveal as="p" className="max-w-xl mt-4 text-lg text-muted">
+        <Reveal as="p" className="max-w-xl mt-4 text-base text-muted">
           Proyectos personales construidos de punta a punta: backend, frontend, base de datos y
           despliegue. Pulsa en una para ver el detalle.
         </Reveal>
@@ -40,7 +40,7 @@ export default function Projects({ onOpen }) {
                   </div>
                   <div className="flex items-end justify-between gap-4 px-6 pb-6 text-white sm:px-8 sm:pb-8">
                     <div>
-                      <h3 className="font-display text-5xl sm:text-6xl">{p.title}</h3>
+                      <h3 className="font-display text-4xl sm:text-5xl">{p.title}</h3>
                       <p className="mt-1 text-sm text-white/75 max-w-[28ch]">{p.subtitle}</p>
                     </div>
                     <span className="grid w-12 h-12 transition-all duration-300 rounded-full shrink-0 place-items-center bg-white/20 group-hover:bg-white group-hover:text-black group-hover:rotate-45">

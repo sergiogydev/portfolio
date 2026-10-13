@@ -15,7 +15,7 @@ export default function Skills() {
           {loop.map((t, i) => (
             <span
               key={i}
-              className="font-display text-[clamp(3rem,8vw,7rem)] leading-none outline-text"
+              className="font-display text-[clamp(2.2rem,4.5vw,4rem)] leading-none outline-text"
             >
               {t} <span className="text-accent">✦</span>
             </span>
@@ -26,7 +26,7 @@ export default function Skills() {
       <div className="px-4 sm:px-8 max-w-[1400px] mx-auto mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
         {stackGroups.map((g, gi) => (
           <Reveal key={g.title} delay={gi % 4}>
-            <h3 className="pb-3 text-2xl border-b font-display border-line">{g.title}</h3>
+            <h3 className="pb-3 text-xl border-b font-display border-line">{g.title}</h3>
             <ul className="flex flex-wrap gap-2 mt-4">
               {g.items.map((it, i) => (
                 <motion.li

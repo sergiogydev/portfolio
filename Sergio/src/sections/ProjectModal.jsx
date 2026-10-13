@@ -118,7 +118,7 @@ export default function ProjectModal({ project, onClose }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.6 }}
           >
-            <h2 className="font-display text-[clamp(4rem,14vw,9rem)] leading-none">
+            <h2 className="font-display text-[clamp(3rem,7vw,6rem)] leading-none">
               {project.title}
             </h2>
             <p className="max-w-xl mx-auto mt-2 text-lg text-muted">{project.subtitle}</p>
@@ -141,7 +141,7 @@ export default function ProjectModal({ project, onClose }) {
             ))}
           </div>
 
-          <p className="max-w-3xl mx-auto mt-14 text-xl leading-relaxed text-center sm:text-2xl">
+          <p className="max-w-3xl mx-auto mt-14 text-lg leading-relaxed text-center sm:text-xl">
             {project.description}
           </p>
 

@@ -8,7 +8,7 @@ export default function Experience() {
   const [open, setOpen] = useState(experiences[0].id);
 
   return (
-    <section id="experiencia" className="px-4 py-24 sm:px-8 scroll-mt-10">
+    <section id="experiencia" className="px-4 py-20 sm:px-8 scroll-mt-10">
       <div className="max-w-[1400px] mx-auto">
         <SectionTitle>Experiencia</SectionTitle>
 
@@ -30,7 +30,7 @@ export default function Experience() {
                     )}
                   </span>
                   <span className="sm:col-span-6">
-                    <span className="block font-display text-4xl sm:text-5xl leading-none transition-transform duration-300 group-hover:translate-x-3">
+                    <span className="block font-display text-2xl sm:text-4xl leading-none transition-transform duration-300 group-hover:translate-x-3">
                       {e.company}
                     </span>
                     {e.note && <span className="text-sm text-muted">{e.note}</span>}
