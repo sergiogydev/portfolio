@@ -1,33 +1,36 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
 
-export const ThemeContext = createContext({
-  isDarkMode: true,
-  setIsDarkMode: () => {},
-});
+export const THEMES = ["light", "dark", "sand", "lime"];
+
+const ThemeContext = createContext({ theme: "light", next: () => {} });
+
+const readStored = () => {
+  try {
+    const t = localStorage.getItem("theme");
+    return THEMES.includes(t) ? t : "light";
+  } catch {
+    return "light";
+  }
+};
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    if (typeof window === "undefined") return true;
-    const stored = localStorage.getItem("theme");
-    if (stored === "light") return false;
-    if (stored === "dark") return true;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches || true;
-  });
+  const [theme, setTheme] = useState(readStored);
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (isDarkMode) {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+    document.documentElement.dataset.theme = theme;
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {
+      /* storage no disponible */
     }
-  }, [isDarkMode]);
+  }, [theme]);
 
-  return (
-    <ThemeContext.Provider value={{ isDarkMode, setIsDarkMode }}>
-      {children}
-    </ThemeContext.Provider>
+  const next = useCallback(
+    () => setTheme((t) => THEMES[(THEMES.indexOf(t) + 1) % THEMES.length]),
+    []
   );
+
+  return <ThemeContext.Provider value={{ theme, next }}>{children}</ThemeContext.Provider>;
 };
+
+export const useTheme = () => useContext(ThemeContext);
